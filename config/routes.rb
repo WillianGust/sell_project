@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :fornecedores
   resources :produtos
   get 'home/index'
   resources :clientes
