@@ -3,7 +3,12 @@ class ProdutosController < ApplicationController
 
   # GET /produtos or /produtos.json
   def index
-    @produtos = Produto.all
+    @produtos = Produto.all 
+    if params[:nome].present?
+      @produtos = @produtos.where(" lower(nome) ilike '%#{URI::encode(params[:nome])}%' ")
+    end
+    options = { page: params[:page] || 1, per_page: 1 }
+    @produtos = @produtos.paginate(options)
   end
 
   # GET /produtos/1 or /produtos/1.json
