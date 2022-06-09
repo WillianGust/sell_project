@@ -7,7 +7,7 @@ class ProdutosController < ApplicationController
     if params[:nome].present?
       @produtos = @produtos.where(" lower(nome) ilike '%#{URI::encode(params[:nome])}%' ")
     end
-    options = { page: params[:page] || 1, per_page: 1 }
+    options = { page: params[:page] || 1, per_page: 10 }
     @produtos = @produtos.paginate(options)
   end
 

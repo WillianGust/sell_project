@@ -8,7 +8,7 @@ class ClientesController < ApplicationController
     if params[:nome].present?
       @clientes = @clientes.where(" lower(nome) ilike '%#{URI::encode(params[:nome])}%' ")
     end
-    options = { page: params[:page] || 1, per_page: 1 }
+    options = { page: params[:page] || 1, per_page: 10 }
     @clientes = @clientes.paginate(options)
   end
 
