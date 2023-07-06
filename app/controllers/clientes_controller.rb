@@ -46,7 +46,7 @@ class ClientesController < ApplicationController
       if @cliente.update(cliente_params)
         format.html { redirect_to cliente_url(@cliente), notice: "Cliente was successfully updated." }
         format.json { render :show, status: :ok, location: @cliente }
-      else
+      els
         format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @cliente.errors, status: :unprocessable_entity }
       end
